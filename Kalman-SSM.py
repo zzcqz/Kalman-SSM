@@ -101,5 +101,5 @@ class Model(nn.Module):
         y = self.dropout(self.outporj(y.permute(0,2,1)).permute(0,2,1))
 
 
-        y=(y) * torch.sqrt(x_var) + x_mean
+        y= y * torch.sqrt(x_var) + x_mean
         return y[:,-self.pred_len:,:]
